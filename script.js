@@ -1,0 +1,20 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all links
+    const links = document.querySelectorAll('a');
+
+    // Add click event to links
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the default anchor link behavior
+            const targetId = link.getAttribute('href').substring(1); // Extract target section ID
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // Adjust for some padding
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
